@@ -1,0 +1,26 @@
+import UIKit
+
+// int people: the number of prisoners
+// int candies: the number of sweets
+// int startChair: the chair number to begin passing out sweets from
+
+func saveThePrisoner(prisoners: Int, candies: Int, startChair: Int) -> Int {
+
+    let lastChairIndex = (startChair - 1 + candies - 1) % prisoners + 1
+    
+    return lastChairIndex
+}
+
+saveThePrisoner(prisoners: 5, candies: 5, startChair: 2)
+
+
+// We are finding the remainder when the total number of moves is divided by the total number of prisoners
+// (1 - 1 + 2 - 1)= 1 % prisoners(4) = 1 (currentIndex) + 1(to match chair number) = 2
+
+// (4 - 1 + 5 - 1)= 7 % prisoners(5) = 2 (currentIndex) + 1(to match chair number) = 3
+//  (Колл-во шагов делим на колл-во людей) и остаток выходит финальный индекс
+
+
+//startChair - 1: This part adjusts the counting to start from the correct position. If startChair is 1, subtracting 1 makes it start from position 0. This aligns with the idea that the first move is from the starting chair.
+
+//+ candies - 1: After the adjustment, we add the number of candies minus 1. This is because we want to count the moves made while distributing candies. If there are 2 candies, we need 1 move to distribute the first candy and another move to distribute the second candy.
